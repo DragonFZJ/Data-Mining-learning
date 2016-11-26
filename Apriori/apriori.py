@@ -4,7 +4,7 @@ __author__ = "clogos"
 
 #载入相关数据
 def loadData():
-	with open("apriori2.in", "r") as f:
+	with open("apriori.in", "r") as f:
 		flines = f.readlines()
 		itemSize = int(flines[0])
 		minSup = int(flines[1])
@@ -55,7 +55,7 @@ def cheakLink(item1, item2, cur_k):
 	return True
 
 
-#连接步。此处可以根据L_old是有序的进行优化，有时间再改进
+#连接步。此处可以进行优化，有时间再改进
 def apriori_gen(L_old, cur_k):
 	L_new = []
 	for i in range(len(L_old)):
@@ -65,7 +65,9 @@ def apriori_gen(L_old, cur_k):
 				item = L_old[i][:]
 				item.append(L_old[j][cur_k-1])
 				L_new.append(item)
-			j += 1
+				j += 1
+			else:
+				break
 
 	return L_new
 
