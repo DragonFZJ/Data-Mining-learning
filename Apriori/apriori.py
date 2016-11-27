@@ -54,17 +54,22 @@ def cheakLink(item1, item2, cur_k):
 			return False
 	return True
 
+def linkTwo(A, B, cur_k):
+	ret = A[:]
+	ret.append(B[cur_k-1])
+	return ret
 
 #连接步。此处可以进行优化，有时间再改进
 def apriori_gen(L_old, cur_k):
 	L_new = []
+	j = 0
 	for i in range(len(L_old)):
-		j = i + 1
+		j = max(i+1, j) 
+		for tt in range(i+1, j):
+			L_new.append(linkTwo(L_old[i], L_old[tt], cur_k))
 		while j < len(L_old):
 			if cheakLink(L_old[i], L_old[j], cur_k):
-				item = L_old[i][:]
-				item.append(L_old[j][cur_k-1])
-				L_new.append(item)
+				L_new.append(linkTwo(L_old[i], L_old[j], cur_k))
 				j += 1
 			else:
 				break
