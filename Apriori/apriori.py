@@ -41,7 +41,6 @@ def getL1(C1, minSup):
 	for item in _L1:
 		if C1[item] >= minSup:
 			tempL1 = []
-			tempsup1= []
 			tempL1.append(item)
 			L1.append(tempL1)
 			sup1.append(C1[item])
