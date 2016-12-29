@@ -193,7 +193,7 @@ def Drawing(trainPatterns, testPatterns):
 	plt.plot(xData1, yData1, color='b', linestyle='-', label='trainPatterns')
 	plt.plot(xData2, yData2, color='r', linestyle='--', marker='o', label='testResult')
 	plt.legend(loc='upper left')
-	plt.savefig('NP.png', format='png')
+	plt.savefig('BP.png', format='png')
 		
 
 def main():
